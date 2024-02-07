@@ -20,4 +20,3 @@ class plateau:
     #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(pion) :
         
-

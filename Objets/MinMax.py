@@ -6,3 +6,6 @@ class MinMax() :
 
     #Méthode qui détermine le maximum d'un tableau
     def max(tableau) :  
+
+    #méthode qui donne me mini ou maxi du tableau
+    def minimax(p,d) :
