@@ -1,5 +1,5 @@
-#Classe Arbre
-class Pion :
-    #Constructeur de la classe Arbres
-    def __init__(self, couleur) : 
-        self.couleur = couleur
+class Arbre :
+
+    def __init__(self, profondeur, matrice) :
+        self.profondeur = profondeur
+        self.matrice = matrice
