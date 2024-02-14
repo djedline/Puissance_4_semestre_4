@@ -1,7 +1,8 @@
 class Noeud :
 
-    def __init__(self, valeur, parent=None):
+    def __init__(self, valeur, plateau, parent=None):
         self.valeur = valeur
+        self.plateau = plateau
         self.parent = parent
         self.gauche = None
         self.droit = None
