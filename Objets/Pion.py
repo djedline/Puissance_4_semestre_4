@@ -6,8 +6,7 @@ class Pion :
         self.ligne = ligne
         self.colonne = colonne
 
-        if (ligne != 0) :
-            self.voisinBas = false
+        self.voisinBas = ""
         self.voisinDroite = ""
         self.voisinGauche = ""
         self.voisinDiagonalDroiteHaut = ""
@@ -16,8 +15,8 @@ class Pion :
         self.voisinDiagonalGaucheBas = ""
 
     #Renvoie la couleur du pion
-    def get_couleur() : 
+    def get_couleur(self) : 
         return self.couleur
          
-    def initialisation_voisin
+    def initialisation_voisin (self) :
     
