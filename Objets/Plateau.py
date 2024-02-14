@@ -5,8 +5,8 @@ class Plateau:
     #Constructeur de la classe plateau
     def __init__(self) : 
         #colonne_vide = ["","","","","","","",]
-        self.plateau = [["","","","","","","",],["","","","","","","",],["","","","","","","",],["","","","","","","",],
-        ["","","","","","","",],["","","","","","","",]]
+        self.plateau = [[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],
+                        [" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",]]
         #for i in range (6) :
         #    self.plateau[i] = colonne_vide
         #Créer un tableau a deux dimensions avec ligne et colonne
@@ -34,7 +34,7 @@ class Plateau:
         ligne = 0
         for ligne in range (6) :
             colon = self.plateau[ligne]
-            if (colon[colonne] == "") :
+            if (colon[colonne] == " ") :
                 colon[colonne] = symbole
                 break
 
