@@ -25,15 +25,15 @@ class nombrePossibilites():
     def checkDroite(ligne, colonne, joueur):
         if joueur == "croix": 
             for i in range(0, 3):
-                if (colonne + i != 7):
-                    if get_case(ligne, colonne) != "O":
+                if (colonne + i < 7):
+                    if get_case(ligne, colonne + i) != "O":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
         else:
             for i in range(0, 3):
-                if (colonne + i != 7):
-                    if get_case(ligne, colonne) != "X":
+                if (colonne + i < 7):
+                    if get_case(ligne, colonne + i) != "X":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
@@ -42,15 +42,15 @@ class nombrePossibilites():
         nb_puissance_4_case = nb_puissance_4_ligne[ligne] + nb_puissance_4_colonne[colonne]
         if joueur == "croix": 
             for i in range(0, 3):
-                if (colonne - i != -1):
-                    if get_case(ligne, colonne) != "O":
+                if (colonne - i > -1):
+                    if get_case(ligne, colonne - i) != "O":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
         else:
             for i in range(0, 3):
-                if (colonne - i != -1):
-                    if get_case(ligne, colonne) != "X":
+                if (colonne - i > -1):
+                    if get_case(ligne, colonne - i) != "X":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
@@ -59,15 +59,15 @@ class nombrePossibilites():
         nb_puissance_4_case = nb_puissance_4_ligne[ligne] + nb_puissance_4_colonne[colonne]
         if joueur == "croix": 
             for i in range(0, 3):
-                if (ligne - i != -1):
-                    if get_case(ligne, colonne) != "O":
+                if (ligne - i > -1):
+                    if get_case(ligne - i, colonne) != "O":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
         else:
             for i in range(0, 3):
-                if (colonne - i != -1):
-                    if get_case(ligne, colonne) != "X":
+                if (ligne - i > -1):
+                    if get_case(ligne - i, colonne) != "X":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
@@ -76,26 +76,52 @@ class nombrePossibilites():
         nb_puissance_4_case = nb_puissance_4_ligne[ligne] + nb_puissance_4_colonne[colonne]
         if joueur == "croix": 
             for i in range(0, 3):
-                if (ligne - i != -1 or colonne - 1 != -1):
-                    if get_case(ligne, colonne) != "O":
+                if (ligne - i != -1 and colonne - i > -1):
+                    if get_case(ligne - i, colonne - i) != "O":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
         else:
             for i in range(0, 3):
-                if (colonne - i != -1 or colonne - 1 != -1):
-                    if get_case(ligne, colonne) != "X":
+                if (ligne - i != -1 and colonne - i > -1):
+                    if get_case(ligne - i, colonne - i) != "X":
                         nb_puissance_4_case -= 1
                         return nb_puissance_4_case
             return nb_puissance_4_case
     
     def checkDiagBasDroite(ligne, colonne, joueur):
-        #TODO Developper recherche blocage
-        return True
+        nb_puissance_4_case = nb_puissance_4_ligne[ligne] + nb_puissance_4_colonne[colonne]
+        if joueur == "croix": 
+            for i in range(0, 3):
+                if (ligne - i != -1 and colonne + i < 7):
+                    if get_case(ligne - i, colonne + i) != "O":
+                        nb_puissance_4_case -= 1
+                        return nb_puissance_4_case
+            return nb_puissance_4_case
+        else:
+            for i in range(0, 3):
+                if (ligne - i != -1 and colonne + i < 7):
+                    if get_case(ligne - i, colonne + i) != "X":
+                        nb_puissance_4_case -= 1
+                        return nb_puissance_4_case
+            return nb_puissance_4_case
     
     def checkDiagHautGauche(ligne, colonne, joueur):
-        #TODO Developper recherche blocage
-        return True
+        nb_puissance_4_case = nb_puissance_4_ligne[ligne] + nb_puissance_4_colonne[colonne]
+        if joueur == "croix": 
+            for i in range(0, 3):
+                if (ligne + i != -1 and colonne - i > -1):
+                    if get_case(ligne + i, colonne - i) != "O":
+                        nb_puissance_4_case -= 1
+                        return nb_puissance_4_case
+            return nb_puissance_4_case
+        else:
+            for i in range(0, 3):
+                if (ligne + i != 6 and colonne - i > -1):
+                    if get_case(ligne + i, colonne - i) != "X":
+                        nb_puissance_4_case -= 1
+                        return nb_puissance_4_case
+            return nb_puissance_4_case
     
     def checkDiagHautDroite(ligne, colonne, joueur):
         #TODO Developper recherche blocage
