@@ -1,9 +1,11 @@
+import Noeud
+
 class Arbre:
     def __init__(self, etat_initial, joueur_initial):
         self.racine = Noeud(etat_initial, joueur_initial)
 
     def generer_arbre(self, noeud, profondeur_max, joueur_max):
-        if profondeur_max == 0 or jeu_est_termine(noeud.etat):
+        if profondeur_max == 0 or noeud.valeur.jeuFini :
             return
         for coup in generer_coups_possibles(noeud.etat):
             nouvel_etat = jouer_coup(noeud.etat, coup)
