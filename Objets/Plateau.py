@@ -9,9 +9,11 @@ class plateau:
 
     #permet de renvoyer le tableau et ses données
     def get_donnees():
+        return True
 
     #Permet de savoir si le tableau est plein
     def get_plein() : 
+        return True
 
     #Ajoute un pion dans le plateau à une certaine hauteur et largeur
     def ajouter_pion(hauteur, largeur, couleur) : 
@@ -19,5 +21,9 @@ class plateau:
 
     #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(pion) :
+        return True
+
+    def get_case(pion) :
+        return True
         
 
