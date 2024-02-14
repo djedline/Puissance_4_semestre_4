@@ -1,6 +1,8 @@
+import Plateau
+
 class Noeud :
 
-    def __init__(self, valeur, parent=None):
+    def __init__(self, valeur : Plateau, parent=None):
         self.valeur = valeur
         self.parent = parent
         self.gauche = None
