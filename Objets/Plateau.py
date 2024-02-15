@@ -61,18 +61,23 @@ class Plateau:
     def get_case(self,colonne) : 
         ligne = self.plateau[ligne]
         case = ligne[colonne]
-        if (case = "") :
+        if (case == "") :
             return None
         else :
             return case
 
+<<<<<<< HEAD
     #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
+=======
+    # Renvoie toutes les possibilités de jeu d'un pion. 
+    # Retourne un tableau a 2 dimensions avec les coordonnées possibles
+>>>>>>> main
     def get_possibilite(self,pion) :
         ligne = 0
         colonne_possible = ["","","","","","",""]
-        for ligne in range 6 :
+        for ligne in range (6) :
             colon = self.plateau[ligne]
-            for c in range 6 :
+            for c in range (6) :
                 if (colon[c] == "") :
                     colonne_possible[c] = True
 
