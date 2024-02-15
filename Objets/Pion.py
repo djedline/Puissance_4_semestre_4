@@ -54,27 +54,27 @@ class Pion :
        
     #Mise à jour du voisin de la Diagonale Droite Bas
     def setVoisinDiagonalDroiteBas(self, nouveauVoisin) :
-        return self.voisinDiagonalDroiteBas = nouveauVoisin
+        self.voisinDiagonalDroiteBas = nouveauVoisin
         
     #Mise à jour du voisin de la Diagonale Gauche Haut
     def setVoisinDiagonalGaucheHaut(self, nouveauVoisin) :
-        return self.voisinDiagonalGaucheHaut = nouveauVoisin
+        self.voisinDiagonalGaucheHaut = nouveauVoisin
         
     #Mise à jour du voisin de la Diagonale Droite Haut
     def setVoisinDiagonalDroiteHaut(self, nouveauVoisin) :
-        return self.voisinDiagonalDroiteHaut = nouveauVoisin
+        self.voisinDiagonalDroiteHaut = nouveauVoisin
         
     #Mise à jour du voisin de la Gauche
     def setVoisinGauche(self, nouveauVoisin) :
-        return self.voisinGauche = nouveauVoisin
+        self.voisinGauche = nouveauVoisin
 
     #Mise à jour du voisin de la Droite
     def setVoisinDroite(self, nouveauVoisin) :
-        return self.voisinDroite = nouveauVoisin
+        self.voisinDroite = nouveauVoisin
 
     #Mise à jour du voisin de la Bas
     def setVoisinBas(self, nouveauVoisin) :
-        return self.voisinBas = nouveauVoisin
+        self.voisinBas = nouveauVoisin
 
     #Initialisation des voisins du pions
     def initialisation_voisin (self) :

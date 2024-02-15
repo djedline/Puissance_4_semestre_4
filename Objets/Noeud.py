@@ -1,3 +1,5 @@
+import Plateau
+
 class Noeud :
 
     def __init__(self, valeur, plateau, parent=None):
