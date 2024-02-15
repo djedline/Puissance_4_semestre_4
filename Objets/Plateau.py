@@ -49,35 +49,22 @@ class Plateau:
 
     #Ajoute un pion dans le plateau à une certaine ligne et colonne
     def ajouter_pion(self,colonne, couleur) : 
-        pionJoueur = Pion(couleur)
+        ligne = 0
+        for ligne in range (6) :
+            colon = self.plateau[5 - ligne]
+            if (colon[colonne] == " ") :
+                colon[colonne] = 
+                break
 
 
  #Ajoute un pion dans le plateau à une certaine ligne et colonne
-    def get_case(self,colonne, ligne) : 
+    def get_case(self,colonne) : 
         ligne = self.plateau[ligne]
         case = ligne[colonne]
         if (case = "") :
             return None
         else :
             return case
-
-    # def fin_jeux(self, ligne, colonne, symbole) :
-    #     l = ligne
-    #     c = ligne
-    #     i = 0 
-    #     colon = self.plateau[ligne]
-    #     for i in range 4 :
-    #         if (l > 3) {
-    #             break
-    #         } else {
-    #             for i range 4 :
-    #                 l -= i
-    #                 if ()
-
-    #         }
-    #         if ()
-
-
 
     #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(self,pion) :
