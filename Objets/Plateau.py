@@ -5,8 +5,8 @@ class Plateau:
     #Constructeur de la classe plateau
     def __init__(self) : 
         #colonne_vide = ["","","","","","","",]
-        self.plateau = [["","","","","","","",],["","","","","","","",],["","","","","","","",],["","","","","","","",],
-        ["","","","","","","",],["","","","","","","",]]
+        self.plateau = [[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],
+        [" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",]]
         #for i in range (6) :
         #    self.plateau[i] = colonne_vide
         #Créer un tableau a deux dimensions avec ligne et colonne
@@ -14,9 +14,18 @@ class Plateau:
 
     #permet de renvoyer le tableau et ses données
     def get_donnees(self):
+        base = "└───┴───┴───┴───┴───┴───┴───┘"
         affiche = ""
         for i in self.plateau :
-            affiche = str(i) + "\n" + affiche
+            for k in range(len(i)) :
+                if (k == 0) : 
+                    affiche += "│ " + i[k] + " │ "
+                elif (k == len(i) - 1) : 
+                    affiche +=  i[k] + " │"
+                else : 
+                    affiche += i[k] + " │ "
+            affiche +=  "\n"
+        affiche += base
         return affiche
         
 
@@ -24,7 +33,7 @@ class Plateau:
     def get_plein(self) : 
         plein = True
         for colonne in self.plateau[5] :
-            if (colonne == "") :
+            if (colonne == " ") :
                 plein = False
         return plein
 
@@ -33,8 +42,8 @@ class Plateau:
     def ajouter_pion_symbole(self, colonne, symbole) : 
         ligne = 0
         for ligne in range (6) :
-            colon = self.plateau[ligne]
-            if (colon[colonne] == "") :
+            colon = self.plateau[5 - ligne]
+            if (colon[colonne] == " ") :
                 colon[colonne] = symbole
                 break
 
@@ -52,23 +61,8 @@ class Plateau:
         else :
             return case
 
-    # def fin_jeux(self, ligne, colonne, symbole) :
-    #     l = ligne
-    #     c = ligne
-    #     i = 0 
-    #     colon = self.plateau[ligne]
-    #     for i in range 4 :
-    #         if (l > 3) {
-    #             break
-    #         } else {
-    #             for i range 4 :
-    #                 l -= i
-    #                 if ()
-
-    #         }
-    #         if ()
-
-    #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
+    # Renvoie toutes les possibilités de jeu d'un pion. 
+    # Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(self,pion) :
         ligne = 0
         colonne_possible = ["","","","","","",""]
