@@ -53,7 +53,8 @@ class Plateau:
         for ligne in range (6) :
             colon = self.plateau[5 - ligne]
             if (colon[colonne] == " ") :
-                colon[colonne] = 
+                nouvPion = Pion(couleur,ligne,colonne)
+                colon[colonne] = nouvPion
                 break
 
 
@@ -66,13 +67,25 @@ class Plateau:
         else :
             return case
 
-<<<<<<< HEAD
-    #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
-=======
+    def get_tour_joueur(self) :
+        nb_pion_X = 0
+        nb_pion_O = 0
+        for ligne in range (6) :
+            colon = self.plateau[ligne]
+            for colonne in range (7) :
+                if (colon[colonne] == "X") :
+                    nb_pion_X += 1
+                elif (colon[colonne] == "O") :
+                    nb_pion_O += 1
+        if (nb_pion_X <= nb_pion_O) :
+            return "X"
+        else :
+            return "O"
+
+
     # Renvoie toutes les possibilités de jeu d'un pion. 
     # Retourne un tableau a 2 dimensions avec les coordonnées possibles
->>>>>>> main
-    def get_possibilite(self,pion) :
+    def get_possibilite(self) :
         ligne = 0
         colonne_possible = ["","","","","","",""]
         for ligne in range (6) :
