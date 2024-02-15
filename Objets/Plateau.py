@@ -53,13 +53,13 @@ class Plateau:
 
 
  #Ajoute un pion dans le plateau à une certaine ligne et colonne
-    def get_case(self,colonne, ligne) : 
-        ligne = self.plateau[ligne]
+    def get_case(self, ligne, colonne) : 
+        ligne += 1
+        ligne = self.plateau[-(ligne)]
         case = ligne[colonne]
-        if (case == "") :
-            return None
-        else :
-            return case
+        print(ligne)
+        print("colonne",colonne)
+        return case
 
     # Renvoie toutes les possibilités de jeu d'un pion. 
     # Retourne un tableau a 2 dimensions avec les coordonnées possibles
@@ -73,6 +73,4 @@ class Plateau:
                     colonne_possible[c] = True
 
         print("TODO get possibilité")
-
-        
 

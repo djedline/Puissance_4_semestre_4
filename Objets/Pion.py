@@ -14,7 +14,7 @@ class Pion :
         self.voisinDiagonalGaucheHaut = " "
         self.voisinDiagonalDroiteBas = " "
         self.voisinDiagonalGaucheBas = " "
-        initialisation_voisin()
+        self.initialisation_voisin()
 
     #Renvoie la couleur du pion
     def __str__(self) : 
@@ -54,43 +54,43 @@ class Pion :
        
     #Mise à jour du voisin de la Diagonale Droite Bas
     def setVoisinDiagonalDroiteBas(self, nouveauVoisin) :
-        return self.voisinDiagonalDroiteBas = nouveauVoisin
+        self.voisinDiagonalDroiteBas = nouveauVoisin
         
     #Mise à jour du voisin de la Diagonale Gauche Haut
     def setVoisinDiagonalGaucheHaut(self, nouveauVoisin) :
-        return self.voisinDiagonalGaucheHaut = nouveauVoisin
+        self.voisinDiagonalGaucheHaut = nouveauVoisin
         
     #Mise à jour du voisin de la Diagonale Droite Haut
     def setVoisinDiagonalDroiteHaut(self, nouveauVoisin) :
-        return self.voisinDiagonalDroiteHaut = nouveauVoisin
+        self.voisinDiagonalDroiteHaut = nouveauVoisin
         
     #Mise à jour du voisin de la Gauche
     def setVoisinGauche(self, nouveauVoisin) :
-        return self.voisinGauche = nouveauVoisin
+        self.voisinGauche = nouveauVoisin
 
     #Mise à jour du voisin de la Droite
     def setVoisinDroite(self, nouveauVoisin) :
-        return self.voisinDroite = nouveauVoisin
+        self.voisinDroite = nouveauVoisin
 
     #Mise à jour du voisin de la Bas
     def setVoisinBas(self, nouveauVoisin) :
-        return self.voisinBas = nouveauVoisin
+        self.voisinBas = nouveauVoisin
 
     #Initialisation des voisins du pions
-    def initialisation_voisin (self) :
-        if (ligne == 0) :
+    def initialisation_voisin(self):
+        if (self.ligne == 0) :
             self.voisinBas = False
             self.voisinDiagonalDroiteBas = False
             self.voisinDiagonalGaucheBas = False
-        if (colonne == 0) :
+        if (self.colonne == 0) :
             self.voisinGauche = False
             self.voisinDiagonalGaucheBas = False
             self.voisinDiagonalGaucheHaut = False
-        if (colonne == 6) :
+        if (self.colonne == 6) :
             self.voisinDroite = False
             self.voisinDiagonalDroiteHaut = False
             self.voisinDiagonalDroiteBas = False
-        if (ligne == 5) :
+        if (self.ligne == 5) :
             self.voisinDiagonalGaucheHaut = False
             self.voisinDiagonalDroiteHaut = False
 
