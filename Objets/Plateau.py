@@ -61,7 +61,8 @@ class Plateau:
         else :
             return case
 
-    #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
+    # Renvoie toutes les possibilités de jeu d'un pion. 
+    # Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(self,pion) :
         ligne = 0
         colonne_possible = ["","","","","","",""]
