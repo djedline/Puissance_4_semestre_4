@@ -8,8 +8,9 @@ class Arbre:
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
         if profondeur_max == 0 or noeud.valeur.jeuFini :
             return
+        tour = noeud.valeur.get_tour_joueur()
         for coup in noeud.valeur.get_possibilite():
-            nouvel_etat = noeud.valeur.ajouter_pion(coup[0],coup[1])
+            nouvel_etat = noeud.valeur.ajouter_pion(coup,tour)
             nouvel_noeud = Noeud(nouvel_etat, joueur_suivant(noeud.joueur))
             noeud.ajouter_enfant(nouvel_noeud)
             self.generer_arbre(nouvel_noeud, profondeur_max - 1, joueur_max)

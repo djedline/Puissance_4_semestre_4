@@ -6,39 +6,22 @@ class Noeud :
         self.valeur = valeur
         self.plateau = plateau
         self.parent = parent
-        self.gauche = None
-        self.droit = None
+        self.enfants = []
 
-    def ajouter_enfant_gauche(self, enfant_gauche):
-        if isinstance(enfant_gauche, NoeudArbre):
-            enfant_gauche.parent = self
-            self.gauche = enfant_gauche
+    def ajouter_enfant(self,enfant):
+        if isinstance(enfant, Noeud):
+            enfant.parent = self
+            self.enfants.append(enfant)
         else:
-            print("L'enfant doit être un NoeudArbre")
+            print("L'enfant doit être un Noeud")
 
-    def ajouter_enfant_droit(self, enfant_droit):
-        if isinstance(enfant_droit, NoeudArbre):
-            enfant_droit.parent = self
-            self.droit = enfant_droit
-        else:
-            print("L'enfant doit être un NoeudArbre")
+    def supprimer_enfant(self,i):
+        self.enfants.pop(i)
 
-    def supprimer_enfant_gauche(self):
-        self.gauche = None
-
-    def supprimer_enfant_droit(self):
-        self.droit = None
-
-    def valeur_enfant_gauche(self):
-        if self.gauche:
-            return self.gauche.valeur
-        else:
-            return None
-
-    def valeur_enfant_droit(self):
-        if self.droit:
-            return self.droit.valeur
-        else:
+    def valeur_enfant(self,i):
+        if i<len(self.enfants) :
+            return self.enfants[i]
+        else :
             return None
 
     def valeur_parent(self):
