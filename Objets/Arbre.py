@@ -1,4 +1,5 @@
 import Noeud
+import Plateau
 
 class Arbre:
     def __init__(self, etat_initial, joueur_initial):
@@ -7,8 +8,8 @@ class Arbre:
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
         if profondeur_max == 0 or noeud.valeur.jeuFini :
             return
-        for coup in generer_coups_possibles(noeud.etat):
-            nouvel_etat = jouer_coup(noeud.etat, coup)
+        for coup in noeud.valeur.get_possibilite():
+            nouvel_etat = noeud.valeur.ajouter_pion(coup[0],coup[1])
             nouvel_noeud = Noeud(nouvel_etat, joueur_suivant(noeud.joueur))
             noeud.ajouter_enfant(nouvel_noeud)
             self.generer_arbre(nouvel_noeud, profondeur_max - 1, joueur_max)
