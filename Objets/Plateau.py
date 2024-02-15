@@ -10,6 +10,7 @@ class Plateau:
         #for i in range (6) :
         #    self.plateau[i] = colonne_vide
         #Créer un tableau a deux dimensions avec ligne et colonne
+        self.jeuFini = False
 
 
     #permet de renvoyer le tableau et ses données
@@ -29,7 +30,7 @@ class Plateau:
         return plein
 
 
-    #Ajoute un pion dans le plateau à une certaine colonne
+    #Ajoute un pion dans le plateau à une certaine ligne et colonne
     def ajouter_pion_symbole(self, colonne, symbole) : 
         ligne = 0
         for ligne in range (6) :
@@ -39,7 +40,7 @@ class Plateau:
                 break
 
     #Ajoute un pion dans le plateau à une certaine ligne et colonne
-    def ajouter_pion(self,colonne, couleur) : 
+    def ajouter_pion(self,ligne, colonne, couleur) : 
         pionJoueur = Pion(couleur)
 
     #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
@@ -53,6 +54,8 @@ class Plateau:
                     colonne_possible[c] = True
 
         print("TODO get possibilité")
+
+        
 
         
 
