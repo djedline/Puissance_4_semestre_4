@@ -2,8 +2,9 @@ import Plateau
 
 class Noeud :
 
-    def __init__(self, valeur : Plateau, parent=None):
+    def __init__(self, valeur, plateau, parent=None):
         self.valeur = valeur
+        self.plateau = plateau
         self.parent = parent
         self.gauche = None
         self.droit = None
