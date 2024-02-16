@@ -38,7 +38,7 @@ class Plateau:
         return plein
 
 
-    #Ajoute un pion dans le plateau à une certaine ligne et colonne
+    #Ajoute un pion dans le plateau à une certaine colonne
     def ajouter_pion_symbole(self, colonne, symbole) : 
         ligne = 0
         for ligne in range (6) :
@@ -48,11 +48,52 @@ class Plateau:
                 break
 
     #Ajoute un pion dans le plateau à une certaine ligne et colonne
-    def ajouter_pion(self,ligne, colonne, couleur) : 
-        pionJoueur = Pion(couleur)
+    def ajouter_pion(self,colonne, couleur) : 
+        ligne = 0
+        for ligne in range (6) :
+            colon = self.plateau[5 - ligne]
+            if (colon[colonne] == " ") :
+                nouvPion = Pion(couleur,ligne,colonne)
+                colon[colonne] = nouvPion
+                break
 
-    #Renvoie toutes les possibilités de jeu d'un pion. Retourne un tableau a 2 dimensions avec les coordonnées possibles
-    def get_possibilite(self,pion) :
+
+ #Ajoute un pion dans le plateau à une certaine ligne et colonne
+    def get_case(self,colonne) : 
+        ligne = self.plateau[ligne]
+        case = ligne[colonne]
+        if (case == "") :
+            return None
+        else :
+            return case
+
+    def get_tour_joueur(self) :
+        nb_pion_X = 0
+        nb_pion_O = 0
+        for ligne in range (6) :
+            colon = self.plateau[ligne]
+            for colonne in range (7) :
+                if (colon[colonne] == "X") :
+                    nb_pion_X += 1
+                elif (colon[colonne] == "O") :
+                    nb_pion_O += 1
+        if (nb_pion_X <= nb_pion_O) :
+            return "X"
+        else :
+            return "O"
+
+
+    # Renvoie toutes les possibilités de jeu d'un pion. 
+    # Retourne un tableau a 2 dimensions avec les coordonnées possibles
+    def get_possibilite(self) :
+        ligne = 0
+        colonne_possible = ["","","","","","",""]
+        for ligne in range (6) :
+            colon = self.plateau[ligne]
+            for c in range (6) :
+                if (colon[c] == "") :
+                    colonne_possible[c] = True
+
         print("TODO get possibilité")
 
         
