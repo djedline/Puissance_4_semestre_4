@@ -1,4 +1,4 @@
-from .Pion import Pion
+from Pion import Pion
 
 class Plateau: 
 
@@ -173,8 +173,10 @@ class Plateau:
     def get_possibilite(self) :
         c = self.plateau[0]
         for colonne in range (7) :   
-            if (self.plateau[0][colonne] != " ") :
+            if (self.plateau[0][colonne] == " ") :
                 c[colonne] = True
+            else :
+                c[colonne] = False
         return c
 
         
