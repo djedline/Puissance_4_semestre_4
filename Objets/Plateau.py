@@ -1,4 +1,4 @@
-from Pion import Pion
+from .Pion import Pion
 
 class Plateau: 
 
