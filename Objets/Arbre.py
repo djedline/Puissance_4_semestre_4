@@ -7,7 +7,7 @@ class Arbre:
 
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
         if profondeur_max == 0 or noeud.valeur.jeuFini :
-            return
+            return None
         for coup in noeud.valeur.get_possibilite():
             nouvel_etat = noeud.valeur.ajouter_pion(coup[0],coup[1])
             nouvel_noeud = Noeud(nouvel_etat, joueur_suivant(noeud.joueur))
