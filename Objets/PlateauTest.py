@@ -14,7 +14,7 @@ print(plateauJeu.get_donnees())
 print(plateauJeu.get_tour_joueur())
 print(str(plateauJeu.get_case(5,5)))
 print(str(plateauJeu.get_case(5,5).getLigne()))
-
+print(str(plateauJeu.get_possibilite()))
 pion_test = plateauJeu.get_case(5,5)
 plateauJeu.puissance_4(pion_test)
 if plateauJeu.puissance_4(pion_test):

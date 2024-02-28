@@ -171,15 +171,11 @@ class Plateau:
     # Renvoie toutes les possibilités de jeu d'un pion. 
     # Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(self) :
-        ligne = 0
-        colonne_possible = ["","","","","","",""]
-        for ligne in range (6) :
-            colon = self.plateau[ligne]
-            for c in range (6) :
-                if (colon[c] == "") :
-                    colonne_possible[c] = True
-
-        print("TODO get possibilité")
+        c = self.plateau[0]
+        for colonne in range (7) :   
+            if (self.plateau[0][colonne] != " ") :
+                c[colonne] = True
+        return c
 
         
 
