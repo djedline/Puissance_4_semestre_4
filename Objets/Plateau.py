@@ -184,21 +184,6 @@ class Plateau:
                 if lePlateau.puissance_4(lePlateau.get_case(5,5)) :
                     return True
         return False
-    
-    @staticmethod
-    def joueur_suivant(lePlateau) :
-        nbLigne = 0
-        for ligne in lePlateau.plateau :
-            for j in range(len(ligne)) :
-                if lePlateau.get_case(j,nbLigne)=="X" :
-                    nbX +=1
-                elif lePlateau.get_case(j,nbLigne)=="O":
-                    nbO +=1
-            nbLigne+=1
-        if nbX>nbO :
-            return "O"
-        else :
-            return "X"
         
     @staticmethod
     def evaluation(lePlateau) :
@@ -209,6 +194,14 @@ class Plateau:
                 return float('inf')
         else :
             return 0
+        
+    def jouer(self,newPlateau) :
+        for i in range(len(self.plateau)) :
+            for j in range(7) :
+                if self.get_case(i,j) != newPlateau.get_case(i,j) :
+                    self.ajouter_pion(j,self.get_tour_joueur())
+                else :
+                    print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
 
 
 
