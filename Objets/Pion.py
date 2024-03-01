@@ -15,7 +15,6 @@ class Pion :
         self.voisinDiagonalDroiteBas = " "
         self.voisinDiagonalGaucheBas = " "
         self.initialisation_voisin()
-        
     #Renvoie la couleur du pion
     def __str__(self) : 
         return self.couleur
@@ -83,7 +82,7 @@ class Pion :
         self.voisinBas = nouveauVoisin
 
     #Initialisation des voisins du pions
-    def initialisation_voisin(self) :
+    def initialisation_voisin(self):
         if (self.ligne == 0) :
             self.voisinBas = False
             self.voisinDiagonalDroiteBas = False

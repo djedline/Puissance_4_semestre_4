@@ -1,4 +1,4 @@
-from Pion import Pion
+from Objets.Pion import Pion
 
 class Plateau: 
 
@@ -34,7 +34,7 @@ class Plateau:
     #Permet de savoir si le tableau est plein
     def get_plein(self) : 
         plein = True
-        for colonne in self.plateau[5] :
+        for colonne in self.plateau[0] :
             if (colonne == " ") :
                 plein = False
         return plein
@@ -51,14 +51,18 @@ class Plateau:
 
     #Ajoute un pion dans le plateau à une certaine ligne et colonne
     def ajouter_pion(self,colonne, couleur) : 
-        ligne = 0
+        pion_ajouter = True
         for ligne in range (6) :
             colon = self.plateau[5-ligne]
             if (colon[colonne] == " ") :
                 nouvPion = Pion(couleur,(5-ligne),colonne)
                 colon[colonne] = nouvPion
                 self.mise_a_jour_pion(nouvPion)
+                pion_ajouter = nouvPion
                 break
+            if ((5-ligne) == 0 and colon[colonne] != " ") :
+                pion_ajouter = False
+        return pion_ajouter
 
 
     def mise_a_jour_pion(self, nouvPion) :
@@ -173,8 +177,10 @@ class Plateau:
     def get_possibilite(self) :
         c = self.plateau[0]
         for colonne in range (7) :   
-            if (self.plateau[0][colonne] != " ") :
+            if (self.plateau[0][colonne] == " ") :
                 c[colonne] = True
+            else :
+                c[colonne] = False
         return c
     
     @staticmethod
