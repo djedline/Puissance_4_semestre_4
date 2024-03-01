@@ -47,7 +47,7 @@ def gestionTour(plateau,pionJ) :
             pion = tourIA(plateau)
         if ((plateau.puissance_4(pion) == True) or (plateau.get_plein() == True)) :
             break
-    print("Fin de partie. " + str(tourJ + "à gagné"))
+    print("Fin de partie. " + str(tourJ + " à gagné"))
 
 
 def afficherRegles():
