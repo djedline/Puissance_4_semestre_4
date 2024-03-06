@@ -1,4 +1,4 @@
-import Plateau
+from Objets.Plateau import Plateau
 
 class Noeud :
 

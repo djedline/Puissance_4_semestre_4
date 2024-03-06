@@ -1,5 +1,6 @@
 from Objets.Plateau import Plateau
 import random
+from Objets.Arbre import Arbre
 
 
 MENUPRINCIPALE = """           *****************************************************
@@ -105,11 +106,15 @@ def tourJoueur(plateau) :
 
 def tourIA(plateau) :
     print(plateau.get_donnees())
-    i = random.randrange(0,7)
+    lArbre = Arbre(plateau)
+    lArbre.generer_arbre( lArbre.racine, 4, False)
+    return lArbre.descenteArbre()
+
+    """ i = random.randrange(0,7)
     poser = plateau.ajouter_pion(i,"O")
     if (poser == False) :
-        tourtourIA(tourIA)
+        tourIA(tourIA)
     else :
-        return poser
+        return poser """
     
 getMenu()

@@ -100,7 +100,7 @@ class Plateau:
     #Renvoie les données d'une case
     def get_case(self,colonne,ligne) : 
         case = self.plateau[ligne][colonne]
-        if (case == "") :
+        if (case == " ") :
             return None
         else :
             return case
@@ -130,7 +130,7 @@ class Plateau:
 
         return False 
 
-    def check_direction(self, pion, delta_ligne, delta_colonne):
+    def check_direction(self, pion: Pion, delta_ligne, delta_colonne):
         """
         Vérifie le nombre de pions alignés dans une direction donnée à partir du pion spécifié.
         """
@@ -173,41 +173,46 @@ class Plateau:
 
 
     # Renvoie toutes les possibilités de jeu d'un pion. 
-    # Retourne un tableau a 2 dimensions avec les coordonnées possibles
+    # Retourne un tableau avec les colones possibles
     def get_possibilite(self) :
-        c = self.plateau[0]
+        c = []
         for colonne in range (7) :   
             if (self.plateau[0][colonne] == " ") :
-                c[colonne] = True
-            else :
-                c[colonne] = False
+                c.append(colonne)     
         return c
     
-    @staticmethod
-    def jeu_est_termine(lePlateau) :
-        for ligne in lePlateau.plateau :
+    
+    def jeu_est_termine(self) :
+        nbLigne = 0
+        for ligne in self.plateau :
             for j in range(len(ligne)) :
-                if lePlateau.puissance_4(lePlateau.get_case(5,5)) :
-                    return True
+                #print(str(j)+" "+str(nbLigne))
+                if self.get_case(j,nbLigne) != None :
+                    if self.puissance_4(self.get_case(j,nbLigne)) :
+                        return True
+            nbLigne +=1
         return False
         
-    @staticmethod
-    def evaluation(lePlateau) :
-        if Plateau.jeu_est_termine(lePlateau) :
-            if lePlateau.get_tour_joueur()=="O" :
-                return float('-inf')
+    def evaluation(self) :
+        if self.jeu_est_termine() :
+            if self.get_tour_joueur()=="O" :
+                return -1000
             else :
-                return float('inf')
+                return 1000
         else :
             return 0
         
     def jouer(self,newPlateau) :
         for i in range(len(self.plateau)) :
             for j in range(7) :
+                #print("------------------------------------")
+                #print(self.get_donnees())
+                #print(newPlateau.get_donnees())
                 if self.get_case(i,j) != newPlateau.get_case(i,j) :
-                    self.ajouter_pion(j,self.get_tour_joueur())
-                else :
-                    print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
+                    poser = self.ajouter_pion(j,self.get_tour_joueur())
+                    return poser
+            
+        print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
 
 
 

@@ -15,9 +15,13 @@ class Pion :
         self.voisinDiagonalDroiteBas = " "
         self.voisinDiagonalGaucheBas = " "
         self.initialisation_voisin()
+
     #Renvoie la couleur du pion
     def __str__(self) : 
         return self.couleur
+
+    def __repr__(self):
+        return self.__str__()
 
     def getLigne(self) :
         return self.ligne
