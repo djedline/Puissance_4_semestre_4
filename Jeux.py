@@ -3,13 +3,14 @@ import random
 from Objets.Arbre import Arbre
 
 
-MENUPRINCIPALE = """           *****************************************************
-           |                         MENU                      |
-           *****************************************************
-           | L : lancer le jeu                                 |
-           | R : Règles du jeu                                 |
-           | Q : Quitter                                       |
-           *****************************************************
+MENUPRINCIPALE = """
+                *****************************************************
+                |                         MENU                      |
+                *****************************************************
+                | L : lancer le jeu                                 |
+                | R : Règles du jeu                                 |
+                | Q : Quitter                                       |
+                *****************************************************
                 """     
 
 
@@ -46,6 +47,7 @@ def gestionTour(plateau,pionJ) :
             pion = tourJoueur(plateau)
         else :
             pion = tourIA(plateau)
+            print("le pion : " + str(pion))
         if ((plateau.puissance_4(pion) == True) or (plateau.get_plein() == True)) :
             break
     print("Fin de partie. " + str(tourJ + " à gagné"))

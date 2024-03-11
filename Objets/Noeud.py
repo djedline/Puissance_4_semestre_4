@@ -34,10 +34,8 @@ class Noeud :
         representation = "Noeud: " + repr(self.valeur) + "\n"
         if self.parent:
             representation += "Parent: " + repr(self.parent.valeur) + "\n"
-        if self.gauche:
-            representation += "Enfant gauche: " + repr(self.gauche.valeur) + "\n"
-        if self.droit:
-            representation += "Enfant droit: " + repr(self.droit.valeur) + "\n"
+        if self.enfants:
+            representation += "Enfants : " + repr(self.enfants) + "\n"
         return representation
 
 # Exemple d'utilisation :

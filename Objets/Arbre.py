@@ -8,18 +8,18 @@ class Arbre:
         self.racine = Noeud(Plateau.evaluation(etat_initial), etat_initial)
 
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
-        print("generer arbre")
         if profondeur_max == 0 or noeud.plateau.jeu_est_termine() :
             return None
         for coup in noeud.plateau.get_possibilite():
             nouvel_etat = copy.deepcopy(noeud.plateau)
             nouvel_etat.ajouter_pion(coup,noeud.plateau.get_tour_joueur())
             nouvel_noeud = Noeud(nouvel_etat.evaluation(), nouvel_etat, noeud)
+            if nouvel_noeud.valeur !=0 :
+                print("valeur du noeud : " + str(nouvel_noeud.valeur))
             noeud.ajouter_enfant(nouvel_noeud)
             self.generer_arbre(nouvel_noeud, profondeur_max - 1, joueur_max)
 
     def minimax(self, noeud, profondeur, isTourDeIA):
-        print("minimax")
         if profondeur == 0 or noeud.plateau.jeu_est_termine():
             return noeud.valeur
         if isTourDeIA:
@@ -38,12 +38,28 @@ class Arbre:
             return valeur_min
         
     def descenteArbre(self):
+        
+        print("desente arbre")
         enfantsValide = []
-        laValeur = self.minimax(self.racine,4,True)
+        laValeur = self.minimax(self.racine,4,False)
+        print("la valeur rechercher : " + str(laValeur))
         for enfant in self.racine.enfants:
             if enfant.valeur == laValeur :
                 enfantsValide.append(enfant)
-        return self.racine.plateau.jouer(enfantsValide[randrange(len(enfantsValide))].plateau)
+        nbAleatoir = randrange(len(enfantsValide))
+        print(len(enfantsValide))
+        print("nb de base : " + str(nbAleatoir))
+        while self.racine.plateau.colonneOk(nbAleatoir) == False :
+            print("nb possible : " + str(nbAleatoir))
+            nbAleatoir = randrange(len(enfantsValide))
+        print("nb choisie : " + str(nbAleatoir))
+        return self.racine.plateau.ajouter_pion(nbAleatoir,self.racine.plateau.get_tour_joueur())
+    
+    def __str__(self) : 
+        return "racine : "+str(self.racine)
+
+    def __repr__(self):
+        return self.__str__()
 
 
 

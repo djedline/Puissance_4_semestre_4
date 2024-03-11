@@ -18,7 +18,8 @@ class Pion :
 
     #Renvoie la couleur du pion
     def __str__(self) : 
-        return self.couleur
+        return str(self.couleur)
+        #+ " ligne : " + str(self.ligne) + " colone : " + str(self.colonne)
 
     def __repr__(self):
         return self.__str__()
