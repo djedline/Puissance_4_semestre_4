@@ -1,4 +1,4 @@
-from Objets.Pion import Pion
+from Pion import Pion
 
 class Plateau: 
 
@@ -100,7 +100,7 @@ class Plateau:
     #Renvoie les données d'une case
     def get_case(self,colonne,ligne) : 
         case = self.plateau[ligne][colonne]
-        if (case == "") :
+        if (case == " ") :
             return None
         else :
             return case
@@ -156,6 +156,27 @@ class Plateau:
 
         return count
 
+    def check_direction_voisin(self, pion, delta_ligne, delta_colonne):
+        """
+        Vérifie le nombre de pions alignés dans une direction donnée à partir du pion spécifié.
+        """
+        ligne = pion.getLigne() 
+        colonne = pion.getColonne()
+        couleur = str(pion)
+        verif = delta_colonne
+        count = 0
+
+        for i in range(3):
+            ligne += delta_ligne
+            colonne += delta_colonne
+            # Vérifie si la case suivante a le même symbole
+            if (0 <= ligne < 6 and 0 <= colonne < 7 and ((str(self.plateau[ligne][colonne]) == couleur) or (self.plateau[ligne][colonne] == " "))):
+                count += 1
+            else:
+                break
+
+        return count
+
     def get_tour_joueur(self) :
         nb_pion_X = 0
         nb_pion_O = 0
@@ -175,12 +196,12 @@ class Plateau:
     # Renvoie toutes les possibilités de jeu d'un pion. 
     # Retourne un tableau a 2 dimensions avec les coordonnées possibles
     def get_possibilite(self) :
-        c = self.plateau[0]
+        c = []
         for colonne in range (7) :   
             if (self.plateau[0][colonne] == " ") :
-                c[colonne] = True
+                c.append(True)
             else :
-                c[colonne] = False
+                c.append(False)
         return c
     
     @staticmethod

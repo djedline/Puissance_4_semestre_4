@@ -200,8 +200,6 @@ def checkDiagHautDroite(nb_puissance_4_case, ligne, colonne, joueur, plateau):
                     nb_puissance_4_case -= 1
                     return nb_puissance_4_case
         return nb_puissance_4_case
-<<<<<<< HEAD
-=======
     
 plateauTest = Plateau()
 print(plateauTest.get_donnees())
@@ -213,4 +211,3 @@ plateauTest.ajouter_pion_symbole(3,"X")
 plateauTest.ajouter_pion_symbole(4,"O")
 print(plateauTest.get_donnees())
 print("Le nombre de possibilite pour le coup en 0,2 est ", checkAll(0,2,"croix",plateauTest))
->>>>>>> dbf72fd4d8978378d93fff5f4893d05aa92b85c2
