@@ -4,8 +4,9 @@ from random import randrange
 import copy
 
 class Arbre:
-    def __init__(self, etat_initial):
+    def __init__(self, etat_initial, enfants):
         self.racine = Noeud(Plateau.evaluation(etat_initial), 0)
+        self.enfants = enfants
 
     def getRacine(self):
         return self.racine
