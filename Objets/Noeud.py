@@ -35,7 +35,7 @@ class Noeud :
         if self.parent:
             representation += "Parent: " + repr(self.parent.valeur) + "\n"
         if self.enfants:
-            representation += "Enfant gauche: " + repr(self.enfants.valeur) + "\n"
+            representation += "Enfants : " + repr(self.enfants) + "\n"
         return representation
 
 # Exemple d'utilisation :

@@ -60,9 +60,17 @@ class Plateau:
                 self.mise_a_jour_pion(nouvPion)
                 pion_ajouter = nouvPion
                 break
-            if ((5-ligne) == 0 and colon[colonne] != " ") :
+            if (ligne == 5 and colon[colonne] != " ") :
+                print("ligne : " + str(ligne) + " colonne : " + str(colonne))
+                print(self.get_case(colonne,ligne))
                 pion_ajouter = False
         return pion_ajouter
+    
+    def colonneOk(self,colonne):  
+        if (self.plateau[0][colonne] == " ") :
+            return True    
+        else :
+            return False
 
 
     def mise_a_jour_pion(self, nouvPion) :
@@ -219,27 +227,22 @@ class Plateau:
         
     def evaluation(self) :
         if self.jeu_est_termine() :
-            if self.get_tour_joueur()=="O" :
+            if self.get_tour_joueur()=="X" :
                 return -1000
             else :
                 return 1000
         else :
             return 0
         
-    def jouer(self,newPlateau) :
-        for i in range(len(self.plateau)) :
-            for j in range(7) :
-                #print("------------------------------------")
-                #print(self.get_donnees())
-                #print(newPlateau.get_donnees())
-                if self.get_case(i,j) != newPlateau.get_case(i,j) :
-                    poser = self.ajouter_pion(j,self.get_tour_joueur())
-                    return poser
-            
-        print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
-
-
-
-
-        
-
+#    def jouer(self,newPlateau) :
+#        print("jeuuuuux")
+#        for i in range(len(self.plateau)) :
+#            for j in range(6) :
+#                #print("------------------------------------")
+#                #print(self.get_donnees())
+#                #print(newPlateau.get_donnees())
+#                if self.get_case(i,j) != newPlateau.get_case(i,j) :
+#                    poser = self.ajouter_pion(j,self.get_tour_joueur())
+#                    return poser
+#            
+#        print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
