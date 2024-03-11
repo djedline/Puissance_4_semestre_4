@@ -1,5 +1,6 @@
 from Plateau import *
-import Noeud
+from Noeud import *
+from Arbre import *
 import copy
 
 def comptagePuissance4(joueur, plateau):
@@ -20,13 +21,13 @@ def comptagePuissance4(joueur, plateau):
     plateauC5 = ["plateau si pion colonne 5","score case"]
     plateauC6 = ["plateau si pion colonne 6","score case"]
     
-    plateauC0 = [c0,comptagePointCase(0,c0, joueur)] if (possibilite[0] == True) else [False,0]
-    plateauC1 = [c1,comptagePointCase(1,c1, joueur)] if (possibilite[1] == True) else [False,0]
-    plateauC2 = [c2,comptagePointCase(2,c2, joueur)] if (possibilite[2] == True) else [False,0]
-    plateauC3 = [c3,comptagePointCase(3,c3, joueur)] if (possibilite[3] == True) else [False,0]
-    plateauC4 = [c4,comptagePointCase(4,c4, joueur)] if (possibilite[4] == True) else [False,0]
-    plateauC5 = [c5,comptagePointCase(5,c5, joueur)] if (possibilite[5] == True) else [False,0]
-    plateauC6 = [c6,comptagePointCase(6,c6, joueur)] if (possibilite[6] == True) else [False,0]
+    plateauC0 = [c0,comptagePointCase(0,c0, joueur)] if (possibilite[0] == True) else [None,0]
+    plateauC1 = [c1,comptagePointCase(1,c1, joueur)] if (possibilite[1] == True) else [None,0]
+    plateauC2 = [c2,comptagePointCase(2,c2, joueur)] if (possibilite[2] == True) else [None,0]
+    plateauC3 = [c3,comptagePointCase(3,c3, joueur)] if (possibilite[3] == True) else [None,0]
+    plateauC4 = [c4,comptagePointCase(4,c4, joueur)] if (possibilite[4] == True) else [None,0]
+    plateauC5 = [c5,comptagePointCase(5,c5, joueur)] if (possibilite[5] == True) else [None,0]
+    plateauC6 = [c6,comptagePointCase(6,c6, joueur)] if (possibilite[6] == True) else [None,0]
 
     #pion = plateau.ajouter_pion(0, joueur)
     return [plateauC0, plateauC1, plateauC2, plateauC3, plateauC4, plateauC5, plateauC6]
@@ -50,19 +51,28 @@ def comptagePointCase(colonne, plateau, joueur) :
     return pointTotal*-1 if joueur == "O" else pointTotal # calculer
 
 def attributionNoeud(tableauResult) :
-    noeud0 = Noeud(tableauResult[0][0], [0][1])
-    noeud1 = Noeud(tableauResult[1][0], [1][1])
-    noeud2 = Noeud(tableauResult[2][0], [2][1])
-    noeud3 = Noeud(tableauResult[3][0], [3][1])
-    noeud4 = Noeud(tableauResult[4][0], [4][1])
-    noeud5 = Noeud(tableauResult[5][0], [5][1])
-    noeud6 = Noeud(tableauResult[6][0], [6][1])
+    noeud0 = Noeud(tableauResult[0][0], tableauResult[0][1])
+    noeud1 = Noeud(tableauResult[1][0], tableauResult[1][1])
+    noeud2 = Noeud(tableauResult[2][0], tableauResult[2][1])
+    noeud3 = Noeud(tableauResult[3][0], tableauResult[3][1])
+    noeud4 = Noeud(tableauResult[4][0], tableauResult[4][1])
+    noeud5 = Noeud(tableauResult[5][0], tableauResult[5][1])
+    noeud6 = Noeud(tableauResult[6][0], tableauResult[6][1])
+
+def creerArbre(profondeur, plateau) :
+    arbre = Arbre(plateau)
+    for p in range (profondeur) :
+        print ("coucou")
+    print(arbre.getRacine())
 
 plateauTest = Plateau()
-print(plateauTest.get_donnees())
-plateauTest.ajouter_pion(0,"O")
-plateauTest.ajouter_pion(0,"X")
-plateauTest.ajouter_pion(0,"X")
+creerArbre(3,plateauTest)
+
+#Test noeud
+#print(plateauTest.get_donnees())
+#plateauTest.ajouter_pion(0,"O")
 #plateauTest.ajouter_pion(0,"X")
-print(str(comptagePuissance4("X", plateauTest)))
+#plateauTest.ajouter_pion(0,"X")
+#plateauTest.ajouter_pion(0,"X")
+#print(str(comptagePuissance4("X", plateauTest)))
 #attributionNoeud(comptagePuissance4("O", plateauTest))

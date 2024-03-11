@@ -101,7 +101,6 @@ class Plateau:
     def get_case(self,colonne,ligne) : 
         case = self.plateau[ligne][colonne]
         if (case == " ") :
-        if (case == " ") :
             return None
         else :
             return case

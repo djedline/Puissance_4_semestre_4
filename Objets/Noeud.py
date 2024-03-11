@@ -1,4 +1,4 @@
-from Objets.Plateau import Plateau
+from Plateau import Plateau
 
 class Noeud :
 
@@ -34,10 +34,8 @@ class Noeud :
         representation = "Noeud: " + repr(self.valeur) + "\n"
         if self.parent:
             representation += "Parent: " + repr(self.parent.valeur) + "\n"
-        if self.gauche:
-            representation += "Enfant gauche: " + repr(self.gauche.valeur) + "\n"
-        if self.droit:
-            representation += "Enfant droit: " + repr(self.droit.valeur) + "\n"
+        if self.enfants:
+            representation += "Enfant gauche: " + repr(self.enfants.valeur) + "\n"
         return representation
 
 # Exemple d'utilisation :

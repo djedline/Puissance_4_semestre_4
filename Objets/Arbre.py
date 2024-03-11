@@ -1,11 +1,17 @@
-from Objets.Noeud import Noeud
-from Objets.Plateau import Plateau
+from Noeud import Noeud
+from Plateau import Plateau
 from random import randrange
 import copy
 
 class Arbre:
     def __init__(self, etat_initial):
-        self.racine = Noeud(Plateau.evaluation(etat_initial), etat_initial)
+        self.racine = Noeud(Plateau.evaluation(etat_initial), 0)
+
+    def getRacine(self):
+        return self.racine
+
+    def ajoutNoeud(self, tablenoeud) :
+        racine.ajouter_enfant(tablenoeud)
 
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
         print("generer arbre")
