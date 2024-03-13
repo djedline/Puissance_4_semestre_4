@@ -1,12 +1,13 @@
-from Pion import Pion
+from Objets.Pion import Pion
 
 class Plateau: 
 
     #Constructeur de la classe plateau
-    def __init__(self) : 
+    def __init__(self, joueurD) : 
         #colonne_vide = ["","","","","","","",]
         self.plateau = [[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",],
         [" "," "," "," "," "," "," ",],[" "," "," "," "," "," "," ",]]
+        joueurDebut = joueurD
         #for i in range (6) :
         #    self.plateau[i] = colonne_vide
         #Créer un tableau a deux dimensions avec ligne et colonne
@@ -178,19 +179,24 @@ class Plateau:
         return count
 
     def get_tour_joueur(self) :
-        nb_pion_X = 0
-        nb_pion_O = 0
+        pionDebut = self.joueurDebut
+        nb_pion_debut = 0
+        nb_pion_Ad = 0
+
         for ligne in range (6) :
             colon = self.plateau[ligne]
             for colonne in range (7) :
-                if (str(colon[colonne]) == "X") :
-                    nb_pion_X += 1
-                elif (str(colon[colonne]) == "O") :
-                    nb_pion_O += 1
-        if (nb_pion_X <= nb_pion_O) :
-            return "X"
+                if (str(colon[colonne]) == self.joueurDebut) :
+                    nb_pion_debut += 1
+                else  :
+                    nb_pion_Ad += 1
+        if (nb_pion_debut <= nb_pion_Ad) :
+            return self.joueurDebut
         else :
-            return "O"
+            if (self.joueurDebut == "X") :
+                return "X"
+            else :
+                return "O"
 
 
     # Renvoie toutes les possibilités de jeu d'un pion. 

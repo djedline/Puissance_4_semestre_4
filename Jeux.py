@@ -17,24 +17,26 @@ REGLE_JEU = """
             **********************************************************   
             |                          REGLES !                      |
             **********************************************************
-            |                                                         |
+            | Problème avec la saisie, il ne faut pas se tromper     |
+            |         Mauvaise gestion du cache de l'input           |
             ********************************************************** 
             """
 MESSAGE_ERREUR_SAISIE = "Erreur de saisie !"
 
 def initialisationJeu():
+    #TODO prposer les différente version
     print("initialisation du plateau")
-    plateauJeu = Plateau()
-    joueur = False
-    gestionTour(plateauJeu,joueur)
+    gestionTour()
     #print(plateauJeu.get_donnees())
 
-#TODO terminé la méthode
-def gestionTour(plateau,pionJ) :
+
+def gestionTour() :
     nbTour = 0
     joueur = ["J1","IA"]
+    
     i = random.randrange(0,2)
     tourJ = joueur[i]
+    plateauJeu = Plateau(tourJ)
     while True :
         nbTour += 1
         if (nbTour != 1) :
@@ -42,10 +44,10 @@ def gestionTour(plateau,pionJ) :
             tourJ = joueur[i]
         print ("C'est le tour de " + str(tourJ))
         if (tourJ[0] == "J") :
-            pion = tourJoueur(plateau)
+            pion = tourJoueur(plateauJeu)
         else :
-            pion = tourIA(plateau)
-        if ((plateau.puissance_4(pion) == True) or (plateau.get_plein() == True)) :
+            pion = tourIA(plateauJeu)
+        if ((plateauJeu.puissance_4(pion) == True) or (plateauJeu.get_plein() == True)) :
             break
     print("Fin de partie. " + str(tourJ + " à gagné"))
 
@@ -58,7 +60,7 @@ def quitterLeJeu():
 
 def getMenu() :
     print(MENUPRINCIPALE)
-    choix = input("Quel est votre choix ? ")
+    choix = input("Quel est votre choix ? ").upper()
     match choix :
         case "L" :
             #lance le jeu
