@@ -35,7 +35,7 @@ def initialisationJeu():
 def gestionTour(plateau,pionJ) :
     nbTour = 0
     joueur = ["J1","IA"]
-    i = random.randrange(0,2)
+    i = 0 #random.randrange(0,2)
     tourJ = joueur[i]
     while True :
         nbTour += 1

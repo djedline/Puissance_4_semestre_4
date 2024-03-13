@@ -204,21 +204,21 @@ class Plateau:
     def evaluation(self) :
         if self.jeu_est_termine() :
             if self.get_tour_joueur()=="X" :
-                return -1000
-            else :
                 return 1000
+            else :
+                return -1000
         else :
             return 0
         
-#    def jouer(self,newPlateau) :
-#        print("jeuuuuux")
-#        for i in range(len(self.plateau)) :
-#            for j in range(6) :
-#                #print("------------------------------------")
-#                #print(self.get_donnees())
-#                #print(newPlateau.get_donnees())
-#                if self.get_case(i,j) != newPlateau.get_case(i,j) :
-#                    poser = self.ajouter_pion(j,self.get_tour_joueur())
-#                    return poser
-#            
-#        print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
+    def jouer(self,newPlateau) :
+        print("jeuuuuux")
+        for i in range(len(self.plateau)) :
+            for j in range(6) :
+                #print("------------------------------------")
+                #print(self.get_donnees())
+                #print(newPlateau.get_donnees())
+                if self.get_case(i,j) != newPlateau.get_case(i,j) :
+                    poser = self.ajouter_pion(j,self.get_tour_joueur())
+                    return poser
+            
+        print("GROSSE ERREUR IL FAIS PAS LA DIFF ENTRE LES DEUX PLATEAU")
