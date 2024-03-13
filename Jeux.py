@@ -46,6 +46,7 @@ def gestionTour(plateau,pionJ) :
         else :
             pion = tourIA(plateau)
         if ((plateau.puissance_4(pion) == True) or (plateau.get_plein() == True)) :
+            plateau.get_donnees()
             break
     print("Fin de partie. " + str(tourJ + " à gagné"))
 
@@ -58,7 +59,7 @@ def quitterLeJeu():
 
 def getMenu() :
     print(MENUPRINCIPALE)
-    choix = input("Quel est votre choix ? ")
+    choix = input("Quel est votre choix ? ").upper()
     match choix :
         case "L" :
             #lance le jeu
@@ -95,6 +96,7 @@ def tourJoueur(plateau) :
         case ("6") :
             poser = plateau.ajouter_pion(int(choix), "X")
         case _:
+            choix=None
             print("cette colonne n'existe pas")
             tourJoueur(plateau)
     if (poser == False) :

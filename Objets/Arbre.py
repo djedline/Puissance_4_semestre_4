@@ -3,8 +3,9 @@ import Plateau
 from random import randrange
 
 class Arbre:
-    def __init__(self, etat_initial):
-        self.racine = Noeud(Plateau.evaluation(etat_initial), etat_initial)
+    def __init__(self, racine):
+        #self.racine = Noeud(Plateau.evaluation(etat_initial), etat_initial)
+        self.racine = racine
 
     def generer_arbre(self, noeud : Noeud, profondeur_max, joueur_max):
         if profondeur_max == 0 or noeud.plateau.jeuFini :
@@ -15,23 +16,15 @@ class Arbre:
             noeud.ajouter_enfant(nouvel_noeud)
             self.generer_arbre(nouvel_noeud, profondeur_max - 1, joueur_max)
 
-    def minimax(self, noeud, profondeur, isTourDeIA):
-        if profondeur == 0 or Plateau.jeu_est_termine(noeud.etat):
-            return noeud.valeur
-        if isTourDeIA:
-            valeur_max = float("-inf")
-            for enfant in noeud.enfants:
-                valeur = self.minimax(enfant, profondeur - 1, False)
-                valeur_max = max(valeur_max, valeur)
-            noeud.valeur = valeur_max
-            return valeur_max
-        else:
-            valeur_min = float("inf")
-            for enfant in noeud.enfants:
-                valeur = self.minimax(enfant, profondeur - 1, True)
-                valeur_min = min(valeur_min, valeur)
-            noeud.valeur = valeur_min
-            return valeur_min
+    def minimaxv2(self, noeud, profondeur) :
+        if profondeur == 0 or ... :
+            return noeud
+        else :
+            if isTourDeIa :
+                return max(minimaxV2())
+            else :
+                return min(minimaxV2())
+
         
     def descenteArbre(self):
         enfantsValide = []
