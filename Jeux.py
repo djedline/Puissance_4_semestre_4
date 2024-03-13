@@ -61,7 +61,7 @@ def quitterLeJeu():
 
 def getMenu() :
     print(MENUPRINCIPALE)
-    choix = input("Quel est votre choix ? ")
+    choix = input("Quel est votre choix ? ").upper()
     match choix :
         case "L" :
             #lance le jeu
@@ -111,12 +111,5 @@ def tourIA(plateau) :
     lArbre = Arbre(plateau)
     lArbre.generer_arbre( lArbre.racine, 4, False)
     return lArbre.descenteArbre()
-
-    """ i = random.randrange(0,7)
-    poser = plateau.ajouter_pion(i,"O")
-    if (poser == False) :
-        tourIA(tourIA)
-    else :
-        return poser """
     
 getMenu()

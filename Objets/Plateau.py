@@ -194,7 +194,6 @@ class Plateau:
         nbLigne = 0
         for ligne in self.plateau :
             for j in range(len(ligne)) :
-                #print(str(j)+" "+str(nbLigne))
                 if self.get_case(j,nbLigne) != None :
                     if self.puissance_4(self.get_case(j,nbLigne)) :
                         return True
@@ -211,12 +210,8 @@ class Plateau:
             return 0
         
     def jouer(self,newPlateau) :
-        print("jeuuuuux")
         for i in range(len(self.plateau)) :
             for j in range(6) :
-                #print("------------------------------------")
-                #print(self.get_donnees())
-                #print(newPlateau.get_donnees())
                 if self.get_case(i,j) != newPlateau.get_case(i,j) :
                     poser = self.ajouter_pion(j,self.get_tour_joueur())
                     return poser
